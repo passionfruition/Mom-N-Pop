@@ -1,13 +1,16 @@
 var db = require("../models");
+var fs = require("fs");
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
+    fs.readFile(__dirname + "../index.html", function(err, data) {
+      if (err) throw err;
+      // We then respond to the client with the HTML page by specifically telling the browser that we are delivering
+      // an html file.
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.end(data);
+    
     });
   });
 
