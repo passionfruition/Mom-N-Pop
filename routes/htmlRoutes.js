@@ -1,17 +1,10 @@
 var db = require("../models");
-var fs = require("fs");
+var path = require("path");
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    fs.readFile(__dirname + "../index.html", function(err, data) {
-      if (err) throw err;
-      // We then respond to the client with the HTML page by specifically telling the browser that we are delivering
-      // an html file.
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.end(data);
-    
-    });
+    res.sendFile(path.join(__dirname, "..public/index.html"));
   });
 
   // Load example page and pass in an example by id
