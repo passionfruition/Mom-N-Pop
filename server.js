@@ -1,8 +1,6 @@
 
 require("dotenv").config();
 var express = require("express");
-var exphbs = require("express-handlebars");
-
 var db = require("./models");
 
 var app = express();
@@ -13,20 +11,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", "handlebars");
-
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-var syncOptions = { force: false };
+// once done testing, change this to false
+var syncOptions = { force: true };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
@@ -36,6 +26,16 @@ if (process.env.NODE_ENV === "test") {
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
+  
+  // adds default data. erase out once done testing. 
+  db.Places.create({
+    name: "FOB Poke",
+    lat: 47.613767,
+    lng: -122.3459567,
+    recommendation: "Make sure to add the mango salsa!",
+    photo: "https://lh5.googleusercontent.com/p/AF1QipOavwc-5eHngYoSwJ_X9B5H0cvTZMscT7V2e0hy=w408-h272-k-no",
+    category: "food"
+  });
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
