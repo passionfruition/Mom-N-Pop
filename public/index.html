@@ -10,31 +10,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hk-grotesk" type="text/css" />
+    <link rel="stylesheet" media="screen" href='styles/styles.css' type='text/css'>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "HKGroteskRegular", Roboto, sans-serif;
-        }
-
-        #map {
-            position: absolute;
-            top: 0;
-            height: 100%;
-            bottom: 0;
-            width: 100%;
-            z-index: 0;
-        }
-
-        button {
-            z-index: 1;
-            position: absolute;
-            margin-top: 10px;
-            margin-left: 10px;
-        }
-    </style>
+   
 </head>
 
 <body>
@@ -42,33 +21,7 @@
     <div id='map'><button type="button" class="btn btn-light" id="add-place">Add Place</button></div>
 
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script>
-       
-
-        $(document).ready(function () {
-            mapboxgl.accessToken = "pk.eyJ1IjoiaXRzZ29vZHRvYmVncmFudCIsImEiOiJjazJvN2RmcXQxMGxlM2hvM3ozMDhxYzdjIn0.YgXtz5WOceD5ec0B1AP2SA";
-
-            var map = new mapboxgl.Map({
-                container: 'map', // container id
-                style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-                center: [-122.335167, 47.608013], // starting position [lng, lat]
-                zoom: 15// starting zoom
-            });
-           
-            $("#add-place").on("click", function () {
-                var popup = new mapboxgl.Popup({ className: 'popup' })
-                    .setLngLat([-122.318870, 47.613760])
-                    .setHTML("<p>Big Mario's Pizza</p><p>Capitol Hill</p><p>Food</p>")
-                    .setMaxWidth("300px")
-                    .addTo(map);
-
-                var marker = new mapboxgl.Marker()
-                    .setLngLat([-122.318870, 47.613760])
-                    .setPopup(popup)
-                    .addTo(map);
-            })
-        })
-    </script>
+    
 </body>
 
 </html>
