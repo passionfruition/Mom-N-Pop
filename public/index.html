@@ -9,20 +9,131 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hk-grotesk" type="text/css" />
-    <link rel="stylesheet" media="screen" href='styles/styles.css' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
-   
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Just+Another+Hand|McLaren|Shrikhand&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" media="screen" href='styles/styles.css' type='text/css'>
+
 </head>
 
 <body>
+    <div id="titleblock">
+        <h1>Mom 'n' Pop</h1>
+    </div>
+    <div id='map'></div>
 
-    <div id='map'><button type="button" class="btn btn-light" id="add-place">Add Place</button></div>
+    <button id="drinksbtn" class="btn-floating btn-large waves-effect waves-light">
+        <i id="helpicon" class="material-icons">local_bar</i>
+    </button>
+    <button id="foodbtn" class="btn-floating btn-large waves-effect waves-light">
+        <i id="helpicon" class="material-icons">fastfood</i>
+    </button>
+    <button id="helpbtn" class="btn-floating btn-large waves-effect waves-light modal-trigger" href="#modal2">
+        <i id="helpicon" class="material-icons">help_outline</i>
+    </button>
+
+    <div id="formblock">
+        <form>
+            <div class="row">
+                <div class="col s6">
+                    <div class="row">
+                        <div class="input-field col s3">
+                            <input id="first_name" type="text" class="validate">
+                            <label for="first_name">First Name</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s3">
+                            <input id="mnp_name" type="text" class="validate">
+                            <label for="mnp_name">Shop Name:</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s3">
+                            <input id="mnp_location" type="text" class="validate">
+                            <label for="mnp_location">Location:</label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <button id="addbtn" class="btn-floating btn-large waves-effect waves-light modal-trigger" href="#modal1">
+        <i id="helpicon" class="large material-icons">control_point</i>
+    </button>
+
+
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Add a New Mom'n'Pop Shop</h4>
+
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                            <label for="first_name">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input disabled value="Name of Mom'n'Pop Shop" id="mnp_name" type="text" class="validate">
+                            <label for="mnp_name">Shop Name:</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="mnp_location" type="text" class="validate">
+                            <label for="mnp_location">Location:</label>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a href="#!" id="submitbtn" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+            <div class="modal-content">
+              <h4>What is Mom'N'Pop?</h4>
+              <p>Mom'N'Pop is an Application to find the unusual, the local, the delightfully secretive places in and about the Seattle area. Use M'N'P to find your next favorite local hangout, or add your own. Eat Local, Shop Local, Live Local.</p>
+            </div>
+            <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat ">Nice!</a>
+                  </div>
+            
+          </div>
+
+
+
+
+
 
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="js/index.js"></script>
-    
+
 </body>
 
 </html>

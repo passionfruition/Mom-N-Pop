@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  $('.modal').modal();
   mapboxgl.accessToken = "pk.eyJ1IjoiaXRzZ29vZHRvYmVncmFudCIsImEiOiJjazJvN2RmcXQxMGxlM2hvM3ozMDhxYzdjIn0.YgXtz5WOceD5ec0B1AP2SA";
 
   var map = new mapboxgl.Map({
@@ -23,3 +24,4 @@ $(document).ready(function () {
       .addTo(map);
   })
 })
+
