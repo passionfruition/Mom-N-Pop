@@ -102,7 +102,7 @@ h4{
 
 #titleblock {
   display: inline-block;
-  float: right;
+  /* float: right; */
   color: cyan;
   background-color: black;
   height: 20%;
