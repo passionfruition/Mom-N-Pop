@@ -40,27 +40,31 @@
             <div class="row">
                 <div class="col s6">
                     <div class="row">
-                        <div class="input-field col s3">
-                            <input id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s3">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
+                        <div class="input-field col s6">
+                                <select>
+                                        <option value="" disabled selected>Choose one</option>
+                                        <option value="food">food</option>
+                                        <option value="drinks">drinks</option>
+                                      </select>
+                                      <label>This is a place to get...</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s3">
-                            <input id="mnp_name" type="text" class="validate">
+                            <input class="grey-text text-lighten-3" id="mnp_name" type="text" class="validate">
                             <label for="mnp_name">Shop Name:</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s3">
-                            <input id="mnp_location" type="text" class="validate">
+                            <input class="grey-text text-lighten-3" id="mnp_location" type="text" class="validate">
                             <label for="mnp_location">Location:</label>
                         </div>
                     </div>
+
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
 
                 </div>
             </div>
@@ -116,11 +120,15 @@
 
     <div id="modal2" class="modal">
             <div class="modal-content">
-              <h4>What is Mom'N'Pop?</h4>
-              <p>Mom'N'Pop is an Application to find the unusual, the local, the delightfully secretive places in and about the Seattle area. Use M'N'P to find your next favorite local hangout, or add your own. Eat Local, Shop Local, Live Local.</p>
+              <h3>What is Mom 'N' Pop?</h3>
+              <p>Mom'N'Pop is an Application to find the unusual, the local, the delightfully unheard of places in and about the Seattle area. <br>
+                Use the Mom 'N' Pop app to find your new favorite local hangout, or you can add your own. 
+                <br>
+                <h4>Eat Like a Local, Shop like a Local, Live like a Local.</h4>
+                </p>
             </div>
             <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat ">Nice!</a>
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat ">Show me my next local joint!</a>
                   </div>
             
           </div>
