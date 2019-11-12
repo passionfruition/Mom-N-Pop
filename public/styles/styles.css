@@ -45,8 +45,8 @@ h4{
   padding-right: auto;
   width: 35vw;
 
-
 }
+
 .select-dropdown {
   color: white; /* no need for !important :) */
 }
@@ -126,10 +126,26 @@ h4{
   
 }
 
+.geocoder {
+  width: 100%;
+  /* bottom: 10px; */
+}
+
+.mapboxgl-ctrl-geocoder {
+  min-width: 100%;
+}
+
+.mapboxgl-popup-content {
+  /* text-align: center; */
+  font-family: "HKGroteskRegular", Roboto, sans-serif;
+}
+
 }
 
 @media only screen and (max-width: 600px) {
-
+  #formblock {
+    display: none;
+  }
 
   
   body {
@@ -139,6 +155,18 @@ h4{
   h1 {
     font-family: 'Just Another Hand', cursive;
     font-size: 5rem;
+  }
+
+  h3{
+    font-family: 'Just Another Hand', cursive;
+    font-size: 3rem;
+    color: #00cccc;
+    text-shadow: 1px 1px black;
+  
+  }
+  h4{
+    font-family: 'Just Another Hand', cursive;
+    font-size: 2rem;
   }
   
   #map {
@@ -151,18 +179,24 @@ h4{
   }
   
   #addbtn {
-    z-index: 1;
-    position: relative;
-    margin-top: 70vh;
-    margin-left: 45vw;
+    position: absolute;
+    right: 0;
+    bottom: 0;
   }
+
+  #helpbtn {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
   #titleblock {
     display: inline-block;
     color: cyan;
     background-color: black;
     height: 18vh;
     width: 100vw;
-    margin-top: 0%;
+    /* margin-top: 0%; */
     /* margin-left: 0vw; */
     padding-left: auto;
     text-align: center;

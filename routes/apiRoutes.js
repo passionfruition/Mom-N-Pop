@@ -16,19 +16,20 @@ module.exports = function(app) {
   });
 
   // Create a new example
-  app.post("/api/places", function(req, res) {
+  app.post("/api/new", function(req, res) {
+    console.log("New place:");
+    console.log(req.body);
     db.Places.create({
-      // name: stored in object in madeline's logic
-      // lng: stored in object in madeline's logic
-      // lat: stored in object in madeline's logic
-      // photo: stored in object in madeline's logic
-
+      name: req.body.name,
+      lat: req.body.lat,
+      lng: req.body.lng,
+      photo: req.body.photo,
       recommendation: req.body.recommendation,
       category: req.body.category
     })
       
       .then(function(Places) {
-      res.json(Places);
+      res.end();
     });
   });
 
