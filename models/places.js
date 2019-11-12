@@ -8,7 +8,8 @@ module.exports = function(sequelize, DataTypes) {
     category: DataTypes.STRING
   }, {
     freezeTableName: true
-
   });
   return Places;
 };
+
+

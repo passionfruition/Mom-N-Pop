@@ -15,7 +15,7 @@ module.exports = function(app) {
     });
   });
 
-  // Create a new example
+  // Create a new place
   app.post("/api/places", function(req, res) {
     db.Places.create({
       // name: stored in object in madeline's logic
@@ -32,10 +32,15 @@ module.exports = function(app) {
     });
   });
 
-  // Delete an example by id
-  // app.delete("/api/all/:id", function(req, res) {
-  //   db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-  //     res.json(dbExample);
-  //   });
-  // });
+  app.get("/api/places/:category", function(req, res){
+    db.Places.findAll({
+      where: {
+        category: req.params.category
+      }
+    }).then(function(dbPlaces) {
+      res.json(dbPlaces);
+    });
+  });
+
+
 };
