@@ -1,3 +1,6 @@
+var Sequelize = require("sequelize");
+var sequelize = require("../config/keys.js")
+
 module.exports = function(sequelize, DataTypes) {
   var Places = sequelize.define("Places", {
     name: DataTypes.STRING,

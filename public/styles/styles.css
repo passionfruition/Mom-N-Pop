@@ -1,3 +1,206 @@
+/* font-family: 'Shrikhand', cursive;
+font-family: 'Just Another Hand', cursive;
+font-family: 'McLaren', cursive;
+font-family: 'Inconsolata', monospace; */
+
+@media only screen and (min-width: 601px) {
+
 .list-group-item {
   line-height: 2.5;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  /* font-family: "HKGroteskRegular", Roboto, sans-serif; */
+  background-color: black;
+}
+h1 {
+  font-family: 'Just Another Hand', cursive;
+  font-size: 5rem;
+  text-shadow: 2px 2px #00cccc;
+}
+h3{
+  font-family: 'Just Another Hand', cursive;
+  font-size: 3rem;
+  color: #00cccc;
+  text-shadow: 1px 1px black;
+
+}
+h4{
+  font-family: 'Just Another Hand', cursive;
+  font-size: 2rem;
+}
+
+#helpicon {
+  font-size: 3rem;
+  color: cyan;
+}
+
+#formblock {
+  position: absolute;
+  top: 35vh;
+  left: 60vw;
+  padding-left: auto;
+  padding-right: auto;
+  width: 35vw;
+
+}
+
+.select-dropdown {
+  color: white; /* no need for !important :) */
+}
+
+#modal2 {
+  max-height: 25vh;
+  overflow: visible;
+}
+
+
+#map {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  bottom: 0;
+  width: 50vw;
+  z-index: 0;
+}
+
+#menuscreen {
+  display: block;
+  /* justify-content: flex-end; */
+
+}
+
+#addbtn {
+  /* display: none; */
+  z-index: 1;
+  position: absolute;
+  margin-top: 50vh;
+  margin-left: 75vw;
+  background-color: #00000000
+  
+}
+
+#helpbtn {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  margin-top: 20vh;
+  margin-left: 90%;
+  background-color: #00000000;
+}
+
+#foodbtn {
+  z-index: 1;
+  position: absolute;
+  margin-top: 20vh;
+  margin-left: 65%;
+  background-color: #00000000;
+}
+
+#drinksbtn {
+  z-index: 1;
+  position: absolute;
+  margin-top: 20vh;
+  margin-left: 80%;
+  background-color: #00000000;
+}
+
+#titleblock {
+  /* display: inline-block; */
+  float: right;
+  color: cyan;
+  background-color: black;
+  height: 20%;
+  width: 50%;
+  margin-top: 0%;
+  margin-left: 0%;
+  z-index: 1;
+  text-align: center;
+}
+
+#description {
+  color: white;
+  float: right;
+  
+}
+
+.geocoder {
+  width: 100%;
+  /* bottom: 10px; */
+}
+
+.mapboxgl-ctrl-geocoder {
+  min-width: 100%;
+}
+
+.mapboxgl-popup-content {
+  /* text-align: center; */
+  font-family: "HKGroteskRegular", Roboto, sans-serif;
+}
+
+}
+
+@media only screen and (max-width: 600px) {
+  #formblock {
+    display: none;
+  }
+
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    font-family: 'Just Another Hand', cursive;
+    font-size: 5rem;
+  }
+
+  h3{
+    font-family: 'Just Another Hand', cursive;
+    font-size: 3rem;
+    color: #00cccc;
+    text-shadow: 1px 1px black;
+  
+  }
+  h4{
+    font-family: 'Just Another Hand', cursive;
+    font-size: 2rem;
+  }
+  
+  #map {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  
+  #addbtn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  #helpbtn {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  #titleblock {
+    display: inline-block;
+    color: cyan;
+    background-color: black;
+    height: 18vh;
+    width: 100vw;
+    /* margin-top: 0%; */
+    /* margin-left: 0vw; */
+    padding-left: auto;
+    text-align: center;
+    z-index: 1;
+
+  }
+  }
