@@ -3,6 +3,46 @@ font-family: 'Just Another Hand', cursive;
 font-family: 'McLaren', cursive;
 font-family: 'Inconsolata', monospace; */
 
+#app-info {
+  background-color: #00000000;
+  box-shadow: none;
+
+
+}
+#addbtn {
+  z-index: 1;
+  text-align: center;
+  background-color: #00000000;
+  width: 50vw;
+  margin-top: 8rem;
+  
+}
+
+#helpbtn {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  width: 25vw;
+  /* margin-left: 90%; */
+  background-color: #00000000;
+  
+} 
+
+#foodbtn {
+  z-index: 1;
+  background-color: #00000000;
+  text-align: center;
+  width: 25vw;
+}
+
+#drinksbtn {
+  z-index: 1;
+  /* margin-top: 20vh; */
+ text-align: center;
+  background-color: #00000000;
+  width: 25vw;
+}
+
 @media only screen and (min-width: 601px) {
 
 .list-group-item {
@@ -33,7 +73,7 @@ h4{
 }
 
 #helpicon {
-  font-size: 3rem;
+  /* font-size: 3rem; */
   color: cyan;
 }
 
@@ -58,86 +98,62 @@ h4{
 
 
 #map {
-  position: absolute;
+  /* position: absolute; */
+  /* clear: both; */
+  /* float: left; */
   top: 0;
   height: 100vh;
   bottom: 0;
-  width: 50vw;
+  /* width: 50vw; */
   z-index: 0;
 }
 
-#menuscreen {
-  display: block;
-  /* justify-content: flex-end; */
 
-}
-
-#addbtn {
-  /* display: none; */
-  z-index: 1;
-  position: absolute;
-  margin-top: 50vh;
-  margin-left: 75vw;
-  background-color: #00000000
-  
-}
-
-#helpbtn {
-  display: none;
-  z-index: 1;
-  position: absolute;
-  margin-top: 20vh;
-  margin-left: 90%;
-  background-color: #00000000;
-}
-
-#foodbtn {
-  z-index: 1;
-  position: absolute;
-  margin-top: 20vh;
-  margin-left: 65%;
-  background-color: #00000000;
-}
-
-#drinksbtn {
-  z-index: 1;
-  position: absolute;
-  margin-top: 20vh;
-  margin-left: 80%;
-  background-color: #00000000;
-}
 
 #titleblock {
-  /* display: inline-block; */
-  float: right;
   color: cyan;
   background-color: black;
-  height: 20%;
-  width: 50%;
-  margin-top: 0%;
-  margin-left: 0%;
   z-index: 1;
   text-align: center;
+  width: 50vw;
+  margin-top: 3rem;
+ 
 }
 
 #description {
+  /* width: 100px; */
+  /* width: 50; */
   color: white;
-  float: right;
+  /* float: right; */
+  margin: 1rem 10rem 1rem 12rem
   
 }
 
 .geocoder {
   width: 100%;
+  background-color: black;
   /* bottom: 10px; */
 }
 
 .mapboxgl-ctrl-geocoder {
   min-width: 100%;
+  /* background-color: black; */
+
 }
 
 .mapboxgl-popup-content {
-  /* text-align: center; */
-  font-family: "HKGroteskRegular", Roboto, sans-serif;
+  text-align: center;
+  font-family: 'Inconsolata', monospace;
+  background-color: black;
+}
+
+#display-form {
+  height: 90vh;
+  background-color: black
+}
+
+#locationinput {
+  /* height: 100vh; */
 }
 
 }
@@ -151,6 +167,7 @@ h4{
   body {
     margin: 0;
     padding: 0;
+    background: #000000;
   }
   h1 {
     font-family: 'Just Another Hand', cursive;
@@ -172,22 +189,46 @@ h4{
   #map {
     position: absolute;
     top: 0;
-    height: 100%;
+    height: 100vh;
     bottom: 0;
-    width: 100%;
+    width: 100vh;
     z-index: -1;
   }
+
   
   #addbtn {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
+   display: block;
+  z-index: 1;
+  /* text-align: center; */
+  /* background-color: #00000000; */
+  align-content: center;
+  position: absolute;
+  /* color: cyan; */
+  width: 100vw;
+  margin-top: 25rem;
+  background-color: rgb(0, 185, 185);
+  
+
+  
+}
+
+#drinksbtn {
+  background-color: rgb(0, 185, 185);
+}
+
+#foodbtn {
+  background-color:rgb(0, 185, 185);
+}
 
   #helpbtn {
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     bottom: 0;
+    display: block;
+    background-color: rgb(0, 185, 185);
+    
+    /* color: cyan; */
+    /* font-size: 6rem; */
   }
 
   #titleblock {
@@ -202,5 +243,9 @@ h4{
     text-align: center;
     z-index: 1;
 
+  }
+
+  #description {
+    display: none;
   }
   }
