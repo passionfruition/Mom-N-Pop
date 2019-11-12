@@ -66,17 +66,24 @@ h4{
   z-index: 0;
 }
 
+#menuscreen {
+  display: block;
+  /* justify-content: flex-end; */
+
+}
+
 #addbtn {
-  display: none;
+  /* display: none; */
   z-index: 1;
   position: absolute;
-  margin-top: 65vh;
+  margin-top: 50vh;
   margin-left: 75vw;
   background-color: #00000000
   
 }
 
 #helpbtn {
+  display: none;
   z-index: 1;
   position: absolute;
   margin-top: 20vh;
@@ -88,7 +95,7 @@ h4{
   z-index: 1;
   position: absolute;
   margin-top: 20vh;
-  margin-left: 75%;
+  margin-left: 65%;
   background-color: #00000000;
 }
 
@@ -96,12 +103,12 @@ h4{
   z-index: 1;
   position: absolute;
   margin-top: 20vh;
-  margin-left: 60%;
+  margin-left: 80%;
   background-color: #00000000;
 }
 
 #titleblock {
-  display: inline-block;
+  /* display: inline-block; */
   float: right;
   color: cyan;
   background-color: black;
@@ -111,6 +118,12 @@ h4{
   margin-left: 0%;
   z-index: 1;
   text-align: center;
+}
+
+#description {
+  color: white;
+  float: right;
+  
 }
 
 }
