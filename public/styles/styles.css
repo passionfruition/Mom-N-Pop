@@ -144,7 +144,6 @@ h4{
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Inconsolata', monospace;
-  background-color: black;
 }
 
 #display-form {
