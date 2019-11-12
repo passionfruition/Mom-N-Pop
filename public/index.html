@@ -13,8 +13,8 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
-    <script
-        src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'>
+    </script>
     <link rel='stylesheet'
         href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css'
         type='text/css' />
@@ -25,92 +25,92 @@
 </head>
 
 <body>
-    <div id='map'></div>
-    
-    
-    <div id="menuscreen">
-    <div id="titleblock">
-        <h1>Mom 'n Pop</h1>
-    </div>
-    
+    <div class="row">
 
-    <button id="drinksbtn" class="btn-floating btn-large waves-effect waves-light">
-        <i id="helpicon" class="material-icons">local_bar</i>
-    </button>
-    <button id="foodbtn" class="btn-floating btn-large waves-effect waves-light">
-        <i id="helpicon" class="material-icons">fastfood</i>
-    </button>
-    <button id="helpbtn" class="btn-floating btn-large waves-effect waves-light modal-trigger" href="#app-info">
-        <i id="helpicon" class="material-icons">help_outline</i>
-    </button>
+        <div class="col md-3">
+            <div id='map'>
 
-    
-    
-    <div id="description">
-            <h3>What is Mom 'N' Pop?</h3>
-            <p>Mom'N'Pop is an Application to find the unusual, the local, the delightfully unheard of places in and about the Seattle area. <br>
-              Use the Mom 'N' Pop app to find your new favorite local hangout, or you can add your own. 
-              <br>
-              <h4>Eat Like a Local, Shop like a Local, Live like a Local.</h4>
-              </p>
-          </div>
+            </div>
+        </div>
 
+        <div class="col md-8">
 
-
-    <!-- <div id="formblock">
-        <form>
             <div class="row">
-                <div class="col s6">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <select>
-                                <option value="" disabled selected>Choose one</option>
-                                <option value="food">food</option>
-                                <option value="drinks">drinks</option>
-                            </select>
-                            <label>This is a place to get...</label>
-                        </div>
+                <div class="col sm-8">
+                    <div id="titleblock">
+                        <h1>Mom 'n Pop</h1>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s3">
-                            <input class="grey-text text-lighten-3" id="mnp_name" type="text" class="validate">
-                            <label for="mnp_name">Shop Name:</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s3">
-                            <input class="grey-text text-lighten-3" id="mnp_location" type="text" class="validate">
-                            <label for="mnp_location">Location:</label>
-                        </div>
-                    </div>
-
-                    <button class="btn waves-effect waves-light cyan lighten-2" type="submit" name="action">Submit
-                        <i class="material-icons right">send</i>
-                    </button>
-
                 </div>
             </div>
-        </form>
-    </div> -->
 
-    <button id="addbtn" class="btn-floating btn-large waves-effect waves-light modal-trigger">
-        <i id="helpicon" class="large material-icons">control_point</i>
-    </button>
+            <div class="row">
 
-</div>
+                <div class="col-6">
+                    <button id="drinksbtn" class="btn-floating btn-large waves-effect waves-light">
+                        <i id="helpicon" class="material-icons">local_bar</i>
+                    </button>
+                </div>
+                
 
+                <div class="col-6">
+                    <button id="foodbtn" class="btn-floating btn-large waves-effect waves-light">
+                        <i id="helpicon" class="material-icons">fastfood</i>
+                    </button>
+                </div>
+
+                <div class="col sm-4">
+                    <button id="helpbtn" class="btn-floating btn-large waves-effect waves-light modal-trigger"
+                        href="#app-info">
+                        <i id="helpicon" class="material-icons">help_outline</i>
+                    </button>
+                </div>
+
+            </div>
+            <div class="row">
+                
+                <div class="col sm-6">
+
+                    <div id="description">
+                        <h3>What is Mom 'N' Pop?</h3>
+                        <p>Mom'N'Pop is an Application to find the unusual, the local, the delightfully unheard of places in
+                            and
+                            about the Seattle area. <br>
+                            Use the Mom 'N' Pop app to find your new favorite local hangout, or you can add your own.
+                            <br>
+                            <h4>Eat Like a Local, Shop like a Local, Live like a Local.</h4>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+ 
+            <div class="row">
+                <div class="col sm-2">
+
+                </div>
+                <div class="col sm-3">
+                    <button id="addbtn" class="btn-large waves-effect waves-light modal-trigger">
+                        <i id="helpicon" class="large material-icons">control_point</i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <!-- Modal Structure -->
-    <div class="modal fade" id="display-form" tabindex="-1" role="dialog" aria-labelledby="displayFormLabel"
+    <div class="modal fade bg-none modal-dialog" id="display-form" tabindex="-1" role="dialog" aria-labelledby="displayFormLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
+        <div class="modal-dialog modal-md bg-dark" role="document">
+            <div class="modal-content bg-dark">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="formModalLabel">Add a New Mom 'n Pop Shop</h5>
+                    <h5 class="modal-title white-text" id="formModalLabel">Add a New Mom 'n Pop Shop</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body bg-dark">
                     <label for="location">Shop Name</label>
                     <div class="form-group">
                         <div id='geocoder' class='geocoder'></div>
@@ -127,9 +127,9 @@
                         <textarea class="form-control" id="recommendation-input" rows="3"></textarea>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
-                    <button type="submit" id="add-place" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                <div class="modal-footer bg-dark">
+                    <button type="button" class="btn cyan lighten-3 black-text" data-dismiss="modal">Cancel</button>
+                    <button type="submit" id="add-place" class="btn cyan white-text" data-dismiss="modal">Submit</button>
                 </div>
             </div>
         </div>
@@ -190,14 +190,17 @@
         </div>
 
     </div>
+
+
+
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
     <script src="js/index.js"></script>
 
 </body>
