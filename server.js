@@ -36,6 +36,14 @@ db.sequelize.sync(syncOptions).then(function() {
     photo: "https://lh5.googleusercontent.com/p/AF1QipOavwc-5eHngYoSwJ_X9B5H0cvTZMscT7V2e0hy=w408-h272-k-no",
     category: "food"
   });
+  db.Places.create({
+    name: "The Whiskey Bar",
+    lat: 47.6150187,
+    lng: -122.338857,
+    recommendation: "Get the Whiskey",
+    photo: "https://lh5.googleusercontent.com/p/AF1QipOiSWEsqvk8AGt0_kyFWlWbJAvuE5fBMU7cWFIE=w408-h544-k-no",
+    category: "drink"
+  });
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
