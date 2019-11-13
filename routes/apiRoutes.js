@@ -1,16 +1,29 @@
 var db = require("../models");
 
-// adding default place for testing
-// db.Places.create({
-//     name: "FOB Poke",
-//     lat: 47.613767,
-//     lng: -122.3459567
-//   });
-
 module.exports = function(app) {
   // Get all examples
   app.get("/api/places", function(req, res) {
     db.Places.findAll({}).then(function(Places) {
+      res.json(Places);
+    });
+  });
+
+  app.get("/api/food", function(req, res) {
+    db.Places.findAll({
+      where: {
+        category: "Food"
+      }
+    }).then(function(Places) {
+      res.json(Places);
+    });
+  });
+
+  app.get("/api/drinks", function(req, res) {
+    db.Places.findAll({
+      where: {
+        category: "Drinks"
+      }
+    }).then(function(Places) {
       res.json(Places);
     });
   });
