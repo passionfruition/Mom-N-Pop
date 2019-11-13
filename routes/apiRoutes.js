@@ -46,15 +46,15 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/places/:category", function(req, res){
-    db.Places.findAll({
-      where: {
-        category: req.params.category
-      }
-    }).then(function(dbPlaces) {
-      res.json(dbPlaces);
-    });
-  });
+  // app.get("/api/places/:category", function(req, res){
+  //   db.Places.findAll({
+  //     where: {
+  //       category: req.params.category
+  //     }
+  //   }).then(function(dbPlaces) {
+  //     res.json(dbPlaces);
+  //   });
+  // });
 
 
 };
