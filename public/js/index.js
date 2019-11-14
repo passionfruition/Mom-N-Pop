@@ -102,7 +102,7 @@ $(document).ready(function () {
       .then(function () {
         var popup = new mapboxgl.Popup({ className: 'popup' })
           .setLngLat([newPlace.lng, newPlace.lat])
-          .setHTML("<h5>" + newPlace.name + "</h5><h6>" + newPlace.category + "</h6><p>" + newPlace.recommendation + "</p>")
+          .setHTML("<h5>" + newPlace.name + "</h5><h6>" + newPlace.category + "</h6><p>" + "<img style='object-fit: cover;' src='" + newPlace.photo + "' height='200' width='200'><br>" + newPlace.recommendation + "</p>")
           .setMaxWidth("300px")
           .addTo(map);
 
