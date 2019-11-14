@@ -28,7 +28,7 @@ font-family: 'Inconsolata', monospace; */
   
 } 
 
-#foodbtn {
+#foodbtn, #allbtn {
   z-index: 1;
   background-color: #00000000;
   text-align: center;
@@ -211,12 +211,8 @@ h4{
   
 }
 
-#drinksbtn {
+#drinksbtn, #foodbtn, #allbtn {
   background-color: rgb(0, 185, 185);
-}
-
-#foodbtn {
-  background-color:rgb(0, 185, 185);
 }
 
   #helpbtn {

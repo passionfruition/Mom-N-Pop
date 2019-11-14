@@ -34,7 +34,7 @@ db.sequelize.sync(syncOptions).then(function() {
     lng: -122.3459567,
     recommendation: "Make sure to add the mango salsa!",
     photo: "https://lh5.googleusercontent.com/p/AF1QipOavwc-5eHngYoSwJ_X9B5H0cvTZMscT7V2e0hy=w408-h272-k-no",
-    category: "food"
+    category: "Food"
   });
   db.Places.create({
     name: "The Whiskey Bar",
@@ -42,7 +42,7 @@ db.sequelize.sync(syncOptions).then(function() {
     lng: -122.338857,
     recommendation: "Get the Whiskey",
     photo: "https://lh5.googleusercontent.com/p/AF1QipOiSWEsqvk8AGt0_kyFWlWbJAvuE5fBMU7cWFIE=w408-h544-k-no",
-    category: "drink"
+    category: "Drinks"
   });
   app.listen(PORT, function() {
     console.log(

@@ -15,7 +15,9 @@ $(document).ready(function () {
   var lat = 0;
   var long = 0;
   var placeName = "";
-  var currentMarkers = [];
+  var markerArray = [];
+  var initialDisplay = true;
+
   var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v11', 
@@ -51,8 +53,8 @@ $(document).ready(function () {
   $("#add-place").on("click", function () {
     var recommendation = $("#recommendation-input").val().trim();
     var category = $("#category-input").children("option:selected").val();
-    console.log(recommendation);
-    console.log(category);
+    // console.log(recommendation);
+    // console.log(category);
 
     // Clear form after user submits
     $(".mapboxgl-ctrl-geocoder--input").val("");
@@ -67,7 +69,9 @@ $(document).ready(function () {
       photo: "",
       category: category
     }
+    // console.log(newPlace);
 
+    // Displays new marker
     $.post("/api/new", newPlace)
       .then(function () {
         var popup = new mapboxgl.Popup({ className: 'popup' })
@@ -76,23 +80,21 @@ $(document).ready(function () {
           .setMaxWidth("300px")
           .addTo(map);
 
-        var marker = new mapboxgl.Marker({ color: 'rgb(0,0,0)' })
+        var newMarker = new mapboxgl.Marker({ color: 'rgb(0,0,0)' })
           .setLngLat([newPlace.lng, newPlace.lat]).setPopup(popup)
           .addTo(map);
-        currentMarkers.push(marker);
+        markerArray.push(newMarker);
+        // console.log(markerArray);
       })
   })
-
-  var initialDisplay = true;
 
   // Displays markers
   function displayPoints(type) {
     $.get("/api/" + type, function (data) {
-      if (currentMarkers !== null) {
-        for (var i = currentMarkers.length - 1; i >= 0; i--) {
-          currentMarkers[i].remove();
-        }
-      }
+      // First remove markers
+      markerArray.forEach((marker) => marker.remove());
+      markerArray = [];
+
       if (data.length !== 0) {
         for (var i = 0; i < data.length; i++) {
           var popup = new mapboxgl.Popup({ className: 'popup' })
@@ -100,16 +102,11 @@ $(document).ready(function () {
             .setHTML("<h5>" + data[i].name + "</h5><h6>" + data[i].category + "</h6><p>" + data[i].recommendation + "</p>")
             .setMaxWidth("300px")
             .addTo(map);
-
+          
           var marker = new mapboxgl.Marker({ color: 'rgb(0,0,0)' })
             .setLngLat([data[i].lng, data[i].lat]).setPopup(popup)
             .addTo(map);
-          // Only run on first render
-          if (initialDisplay) {
-            currentMarkers.push(marker);
-            console.log(currentMarkers);
-            initialDisplay = false;
-          }
+              markerArray.push(marker);     
         }
       }
     })
