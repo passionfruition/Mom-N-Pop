@@ -17,6 +17,7 @@ $(document).ready(function () {
   var placeName = "";
   var markerArray = [];
   var initialDisplay = true;
+  var formisValid = false;
 
   var map = new mapboxgl.Map({
     container: 'map', // container id
@@ -28,12 +29,13 @@ $(document).ready(function () {
   // Initialize geocoder
   var geocoder = new MapboxGeocoder({ 
     accessToken: mapboxgl.accessToken, 
-    placeholder: '',
+    placeholder: " ",
     // limit results to Seattle area
     countries: 'us',
     place: "Seattle",
     bbox: [-122.50250090764501, 47.5305447461121, -122.10674987605402, 47.73564476982446],
     proximity: [-122.335167, 47.608013],
+    types: "poi",
     mapboxgl: mapboxgl,
     marker: false
   });
@@ -49,12 +51,36 @@ $(document).ready(function () {
 
   document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
-  // When user submits new place
-  $("#add-place").on("click", function () {
+  // Check form validity
+  function checkFormValidity() {
+    var recommendationInput = $("#recommendation-input").val().trim();
+    var categoryInput = $("#category-input").children("option:selected").val();
+    var locationInput = $(".mapboxgl-ctrl-geocoder--input").val();
+    if (recommendationInput == "") {
+      $("#recommendation-input").addClass("is-invalid");
+    } else {
+      $("#recommendation-input").addClass("is-valid");
+    }
+    if (categoryInput == "") {
+      $("#category-input").addClass("is-invalid");
+    } else {
+      $("#category-input").addClass("is-valid");
+    }
+    // if(locationInput == "") {
+    //   $(".mapboxgl-ctrl-geocoder--input").addClass("is-invalid");
+    // } else {
+    //   $(".mapboxgl-ctrl-geocoder--input").addClass("is-valid");
+    // }
+    if (recommendationInput == "" || categoryInput == "" || locationInput == "") {
+      formisValid = false;
+    } else {
+      formisValid = true;
+    }
+  }
+
+  function submitValidForm() {
     var recommendation = $("#recommendation-input").val().trim();
     var category = $("#category-input").children("option:selected").val();
-    // console.log(recommendation);
-    // console.log(category);
 
     // Clear form after user submits
     $(".mapboxgl-ctrl-geocoder--input").val("");
@@ -69,7 +95,7 @@ $(document).ready(function () {
       photo: "",
       category: category
     }
-    // console.log(newPlace);
+    console.log(newPlace);
 
     // Displays new marker
     $.post("/api/new", newPlace)
@@ -86,6 +112,22 @@ $(document).ready(function () {
         markerArray.push(newMarker);
         // console.log(markerArray);
       })
+  }
+  // When user submits new place
+  $("#add-place").on("click", function (event) {
+    event.preventDefault();
+    checkFormValidity();
+    if(formisValid) {
+      submitValidForm();
+      // Remove form validation classes
+      $("#recommendation-input").removeClass("is-invalid");
+      $("#category-input").removeClass("is-invalid");
+      $(".mapboxgl-ctrl-geocoder--input").removeClass("is-invalid");
+      $("#recommendation-input").removeClass("is-valid");
+      $("#category-input").removeClass("is-valid");
+      $(".mapboxgl-ctrl-geocoder--input").removeClass("is-valid");
+      $("#display-form").modal("hide");
+    } 
   })
 
   // Displays markers
@@ -99,7 +141,7 @@ $(document).ready(function () {
         for (var i = 0; i < data.length; i++) {
           var popup = new mapboxgl.Popup({ className: 'popup' })
             .setLngLat([data[i].lng, data[i].lat])
-            .setHTML("<h5>" + data[i].name + "</h5><h6>" + data[i].category + "</h6><p>" + data[i].recommendation + "</p>")
+            .setHTML("<h5>" + data[i].name + "</h5><h6>" + data[i].category + "</h6><p>" + "<img style='object-fit: cover;' src='" + data[i].photo + "' alt='place image' height='200' width='200'><br>" + data[i].recommendation + "</p>")
             .setMaxWidth("300px")
             .addTo(map);
           
