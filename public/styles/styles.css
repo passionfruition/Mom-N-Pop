@@ -3,6 +3,8 @@ font-family: 'Just Another Hand', cursive;
 font-family: 'McLaren', cursive;
 font-family: 'Inconsolata', monospace; */
 
+
+
 #app-info {
   background-color: #00000000;
   box-shadow: none;
@@ -13,9 +15,22 @@ font-family: 'Inconsolata', monospace; */
   z-index: 1;
   text-align: center;
   background-color: #00000000;
-  width: 50vw;
-  margin-top: 8rem;
+  /* position: absolute; */
+  /* position: -webkit-sticky; Safari */
+  position: fixed;
+  bottom: 0;
+  right: 25%;
+  /* padding-left: 50%; */
   
+
+
+  /* width: 50vw; */
+  /* margin-top: 8rem; */
+  
+}
+
+#stickyy {
+
 }
 
 #helpbtn {
@@ -200,11 +215,12 @@ h4{
   z-index: 1;
   /* text-align: center; */
   /* background-color: #00000000; */
-  align-content: center;
-  position: absolute;
-  /* color: cyan; */
-  width: 100vw;
-  margin-top: 25rem;
+  /* align-content: center; */
+  position: fixed;
+  bottom: 0;
+  right: 50%;
+  text-anchor: middle;
+ 
   background-color: rgb(0, 185, 185);
   
 
