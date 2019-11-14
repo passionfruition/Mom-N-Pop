@@ -44,17 +44,17 @@
             </div>
 
             <div class="row">
-                    <div class="col s3">
-                            <button id="allbtn" class="btn-floating btn-large waves-effect waves-light">
-                   <i id="helpicon" class="material-icons">room</i>
-               </button>
-                       </div>
+                <div class="col s3">
+                    <button id="allbtn" class="btn-floating btn-large waves-effect waves-light">
+                        <i id="helpicon" class="material-icons">room</i>
+                    </button>
+                </div>
                 <div class="col s4">
                     <button id="drinksbtn" class="btn-floating btn-large waves-effect waves-light btn-flat cyan-text">
                         <i id="helpicon" class="material-icons">local_bar</i>
                     </button>
                 </div>
-                
+
 
                 <div class="col s4">
                     <button id="foodbtn" class="btn-floating btn-large waves-effect waves-light btn-flat cyan-text">
@@ -68,16 +68,17 @@
                         <i id="helpicon" class="material-icons">help_outline</i>
                     </button>
                 </div> -->
-                
+
 
             </div>
             <div class="row">
-                
+
                 <div class="col s6">
 
                     <div id="description">
-                        <h3>What is Mom 'N' Pop?</h3>
-                        <p>Mom'N'Pop is an Application to find the unusual, the local, the delightfully unheard of places in
+                        <h3>What is Mom 'n Pop?</h3>
+                        <p>Mom 'n Pop is an Application to find the unusual, the local, the delightfully unheard of
+                            places in
                             and
                             about the Seattle area. <br>
                             Use the Mom 'N' Pop app to find your new favorite local hangout, or you can add your own.
@@ -88,9 +89,8 @@
                 </div>
             </div>
 
- 
+
             <div class="row">
-                
                 <div class="col s3">
                     <button id="addbtn" class="btn-large waves-effect waves-light modal-trigger btn-bottom btn-flat white-text">
                         <i id="helpicon" class="large material-icons">control_point</i>
@@ -101,8 +101,8 @@
         </div>
     </div>
     <!-- Modal Structure -->
-    <div class="modal fade bg-none modal-dialog" id="display-form" tabindex="-1" role="dialog" aria-labelledby="displayFormLabel"
-        aria-hidden="true">
+    <div class="modal fade bg-none modal-dialog" id="display-form" tabindex="-1" role="dialog"
+        aria-labelledby="displayFormLabel" aria-hidden="true">
         <div class="modal-dialog modal-md bg-dark" role="document">
             <div class="modal-content bg-dark">
                 <div class="modal-header">
@@ -112,26 +112,33 @@
                     </button>
                 </div>
                 <div class="modal-body bg-dark">
-                    <label for="location">Shop Name</label>
-                    <div class="form-group">
-                        <div id='geocoder' class='geocoder'></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="category">Category</label>
-                        <select class="form-control" id="category-input">
-                            <option>Food</option>
-                            <option>Drinks</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="recommendation">Recommendation</label>
-                        <textarea class="form-control" id="recommendation-input" rows="3"></textarea>
-                    </div>
+                    <form>
+                        <label for="location">Shop Name</label>
+                        <div class="form-group">
+                            <div id='geocoder' class='geocoder' required></div>
+                            <div class="invalid-feedback">Please choose a location.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select class="form-control" id="category-input" required>
+                                <option>Food</option>
+                                <option>Drinks</option>
+                            </select>
+                            <div class="invalid-feedback">Please select a category.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="recommendation">Recommendation</label>
+                            <textarea class="form-control" id="recommendation-input" rows="3" required></textarea>
+                            <div class="invalid-feedback">Please add a recommendation.</div>
+                        </div>
+                        <div class="modal-footer bg-dark">
+                            <button type="button" class="btn cyan lighten-3 black-text"
+                                data-dismiss="modal">Cancel</button>
+                            <button type="submit" id="add-place" class="btn cyan white-text">Submit</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer bg-dark">
-                    <button type="button" class="btn cyan lighten-3 black-text" data-dismiss="modal">Cancel</button>
-                    <button type="submit" id="add-place" class="btn cyan white-text" data-dismiss="modal">Submit</button>
-                </div>
+
             </div>
         </div>
     </div>
@@ -159,10 +166,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="js/index.js"></script>
 
 </body>
