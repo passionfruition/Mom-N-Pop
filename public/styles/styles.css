@@ -215,11 +215,12 @@ h4{
   z-index: 1;
   /* text-align: center; */
   /* background-color: #00000000; */
-  align-content: center;
-  position: absolute;
-  /* color: cyan; */
-  width: 100vw;
-  margin-top: 25rem;
+  /* align-content: center; */
+  position: fixed;
+  bottom: 0;
+  right: 50%;
+  text-anchor: middle;
+ 
   background-color: rgb(0, 185, 185);
   
 
