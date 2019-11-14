@@ -2,10 +2,6 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-  app.get("/", function(req, res) {
-    res.json(path.join(__dirname, "public/index.html"));
-  });
-  
   // Get all examples
   app.get("/api/places", function(req, res) {
     db.Places.findAll({}).then(function(Places) {
