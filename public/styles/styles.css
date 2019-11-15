@@ -20,6 +20,10 @@ font-family: 'Inconsolata', monospace; */
   position: fixed;
   bottom: 0;
   right: 25%;
+  background-image: url(../img/add_icon.png);
+  background-size: 100%;
+  /* size: 250px 250px; */
+  
   /* padding-left: 50%; */
   
 
@@ -29,7 +33,17 @@ font-family: 'Inconsolata', monospace; */
   
 }
 
+#addimage {
+  
+}
+
 #stickyy {
+
+}
+
+#allbtn {
+  background-image: url(../img/all_icon.png);
+  background-size: 100%;
 
 }
 
@@ -47,7 +61,9 @@ font-family: 'Inconsolata', monospace; */
   z-index: 1;
   background-color: #00000000;
   text-align: center;
-  width: 25vw;
+  /* width: 25vw; */
+  background-image: url(../img/burger_icon.png);
+  background-size: 100%;
 }
 
 #drinksbtn {
@@ -55,7 +71,9 @@ font-family: 'Inconsolata', monospace; */
   /* margin-top: 20vh; */
  text-align: center;
   background-color: #00000000;
-  width: 25vw;
+  /* width: 25vw; */
+  background-image: url(../img/drink_icon.png);
+  background-size: 100%;
 }
 
 @media only screen and (min-width: 601px) {
@@ -221,7 +239,7 @@ h4{
   right: 50%;
   text-anchor: middle;
  
-  background-color: rgb(0, 185, 185);
+  /* background-color: rgb(0, 185, 185); */
   
 
   
