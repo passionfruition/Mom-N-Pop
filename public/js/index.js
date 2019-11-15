@@ -102,7 +102,7 @@ $(document).ready(function () {
       .then(function () {
         var popup = new mapboxgl.Popup({ className: 'popup' })
           .setLngLat([newPlace.lng, newPlace.lat])
-          .setHTML("<h5>" + newPlace.name + "</h5><h6>" + newPlace.category + "</h6><p>" + "<img style='object-fit: cover;' src='" + newPlace.photo + "' height='200' width='200'><br>" + newPlace.recommendation + "</p>")
+          .setHTML("<h5><strong>" + newPlace.name + "</strong></h5><h6>" + newPlace.category + "</h6><p>" + "<img style='object-fit: cover;' src='" + newPlace.photo + "' height='200' width='200'<br>" + "<b>Recommendation: </b>" + newPlace.recommendation + "</p>")
           .setMaxWidth("300px")
           .addTo(map);
 
@@ -116,6 +116,7 @@ $(document).ready(function () {
   // When user submits new place
   $("#add-place").on("click", function (event) {
     event.preventDefault();
+    checkChains(placeName);
     checkFormValidity();
     if(formisValid) {
       submitValidForm();
@@ -141,7 +142,7 @@ $(document).ready(function () {
         for (var i = 0; i < data.length; i++) {
           var popup = new mapboxgl.Popup({ className: 'popup' })
             .setLngLat([data[i].lng, data[i].lat])
-            .setHTML("<h5>" + data[i].name + "</h5><h6>" + data[i].category + "</h6><p>" + "<img style='object-fit: cover;' src='" + data[i].photo + "' alt='place image' height='200' width='200'><br>" + data[i].recommendation + "</p>")
+            .setHTML("<h5><strong>" + data[i].name + "</strong></h5><h6>" + data[i].category + "</h6><p>" + "<img style='object-fit: cover;' src='" + data[i].photo + "' alt='place image' height='200' width='200'><br>" + "<b>Recommendation: </b>" + data[i].recommendation + "</p>")
             .setMaxWidth("300px")
             .addTo(map);
           
@@ -173,4 +174,15 @@ $(document).ready(function () {
   })
 
 })
+      // checks for chain restaurants and alerts the user while clearing out first form
+var chainsArr = ["Burger King", "McDonald's", "Pizza Hut", "Pizza Hut Express", "Wendy's", "Subway", "Papa John's Pizza", "Domino's Pizza", "Jimmy John's", "Quiznos", "Jack in the Box", "Starbucks", "Taco Bell", "Taco Del Mar", "Arbys", "Arby's", "Chick-fil-A", "KFC", "KFC/Taco Bell", "Woods Coffee", "Krispy Kreme", "Krispy Kreme Doughnuts"]; 
 
+function checkChains(name) {
+  for (var i = 0; i < chainsArr.length; i++) {
+    if(name === chainsArr[i]) {
+      $(".mapboxgl-ctrl-geocoder--input").val("");
+      $(".mapboxgl-ctrl-geocoder--input").attr("placeholder", "Mom n' Pop name here");
+      alert("Hey, Mom n' Pop restaurants only! No chains!");
+    }
+  }
+}
