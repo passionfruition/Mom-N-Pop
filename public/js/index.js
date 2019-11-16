@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  
+  // $(".modal").removeClass("fade");
   // Displays app info modal
   $("#helpbtn").on("click", function () {
     $("#app-info").modal("show");
@@ -7,6 +7,7 @@ $(document).ready(function () {
 
   // Displays form modal
   $("#addbtn").on("click", function () {
+    $("#display-form").modal({backdrop: false});
     $("#display-form").modal("show");
   });
 
@@ -96,23 +97,50 @@ $(document).ready(function () {
       category: category
     }
     console.log(newPlace);
-
+    
     // Displays new marker
     $.post("/api/new", newPlace)
       .then(function () {
-        var popup = new mapboxgl.Popup({ className: 'popup' })
-          .setLngLat([newPlace.lng, newPlace.lat])
-          .setHTML("<h5><strong>" + newPlace.name + "</strong></h5><h6>" + newPlace.category + "</h6><p>" + "<img style='object-fit: cover;' src='" + newPlace.photo + "' height='200' width='200'<br>" + "<b>Recommendation: </b>" + newPlace.recommendation + "</p>")
-          .setMaxWidth("300px")
-          .addTo(map);
+        // var popup = new mapboxgl.Popup({ className: 'popup' })
+        //   .setLngLat([newPlace.lng, newPlace.lat])
+        //   .setHTML("<h5><strong>" + newPlace.name + "</strong></h5><h6>" + newPlace.category + "</h6><p>" + "<img style='object-fit: cover;' src='" + newPlace.photo + "' height='200' width='200'<br>" + "<b>Recommendation: </b>" + newPlace.recommendation + "</p>")
+        //   .setMaxWidth("300px")
+        //   .addTo(map);
 
-        var newMarker = new mapboxgl.Marker({ color: 'rgb(0,0,0)' })
-          .setLngLat([newPlace.lng, newPlace.lat]).setPopup(popup)
-          .addTo(map);
-        markerArray.push(newMarker);
+        // var newMarker = new mapboxgl.Marker({ color: 'rgb(0,0,0)' })
+        //   .setLngLat([newPlace.lng, newPlace.lat]).setPopup(popup)
+        //   .addTo(map);
+        // markerArray.push(newMarker);
         // console.log(markerArray);
+        $("#added-info").html("<p><strong>" + placeName+ "</strong>"+ " has been added.</p>");
+        $("#confirmModal").modal("show");
       })
   }
+
+  $("#confirm-button").on("click", function(event) {
+    $.get("/api/places", function (data) {
+      event.preventDefault();
+      $("#display-form").modal("hide");
+
+      if (data.length !== 0) {
+          var addedPlace = data.slice(-1)[0]; 
+          console.log(addedPlace);
+          var popup = new mapboxgl.Popup({ className: 'popup' })
+            .setLngLat([addedPlace.lng, addedPlace.lat])
+            .setHTML("<h5><strong>" + addedPlace.name + "</strong></h5><h6>" + addedPlace.category + "</h6><p>" + "<img style='object-fit: cover;' src='" + addedPlace.photo + "' alt='place image' height='200' width='200'><br>" + "<b>Recommendation: </b>" + addedPlace.recommendation + "</p>")
+            .setMaxWidth("300px")
+            .addTo(map);
+          
+          var marker = new mapboxgl.Marker({ color: 'rgb(0,0,0)' })
+            .setLngLat([addedPlace.lng, addedPlace.lat]).setPopup(popup)
+            .addTo(map);
+              markerArray.push(marker);     
+        
+      }
+    })
+    
+  })
+
   // When user submits new place
   $("#add-place").on("click", function (event) {
     event.preventDefault();

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mom & Pop</title>
+    <title>Mom 'n Pop</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -64,7 +64,7 @@
                     </button>
                 </div>
 
-                <<div class="col s3">
+                <div class="col s3">
                     <button id="helpbtn" class="btn-floating btn-large waves-effect waves-light btn-flat cyan-text modal-trigger"
                         href="#app-info">
                         <!-- <i id="helpicon" class="material-icons">help_outline</i> -->
@@ -94,7 +94,7 @@
 
             <div class="row">
                 <div class="col s3">
-                    <button id="addbtn" class="btn-large waves-effect waves-light modal-trigger">
+                    <button id="addbtn" class="btn-large waves-effect waves-light modal-trigger" data-backdrop="false">
                         <!-- <i id="helpicon" class="large material-icons">control_point</i> -->
                     </button>
                 </div>
@@ -102,7 +102,8 @@
 
         </div>
     </div>
-    <!-- Modal Structure -->
+
+    <!-- Modal for form to add place -->
     <div class="modal fade bg-none modal-dialog" id="display-form" tabindex="-1" role="dialog"
         aria-labelledby="displayFormLabel" aria-hidden="true">
         <div class="modal-dialog modal-md bg-dark" role="document">
@@ -134,9 +135,9 @@
                             <div class="invalid-feedback">Please add a recommendation.</div>
                         </div>
                         <div class="modal-footer bg-dark">
-                            <button type="button" class="btn cyan lighten-3 black-text"
+                            <button type="button" id="close-button" class="btn cyan lighten-3 black-text"
                                 data-dismiss="modal">Cancel</button>
-                            <button type="submit" id="add-place" class="btn cyan white-text">Submit</button>
+                            <button id="add-place" class="btn cyan white-text" data-backdrop="false">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -144,6 +145,26 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal to confirm place added -->
+<div class="modal" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Nice!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p id="added-info">Place added.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="confirm-button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <div id="app-info" class="modal">
         <div class="modal-content">
