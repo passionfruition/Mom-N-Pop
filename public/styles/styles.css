@@ -59,7 +59,7 @@ font-family: 'Inconsolata', monospace; */
   
 } 
 
-#foodbtn, #allbtn {
+#foodbtn {
   z-index: 1;
   background-color: #00000000;
   text-align: center;
