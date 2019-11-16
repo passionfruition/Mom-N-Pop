@@ -44,7 +44,7 @@ module.exports = function(app) {
     });
   });
 
-  // Create a new example
+  // Create a new place
   app.post("/api/new", function(req, res) {
     console.log("New place:");
     console.log(req.body);
@@ -70,4 +70,16 @@ module.exports = function(app) {
     });
   });
 
+  app.delete("/api/delete/:id", function(req, res) {
+    console.log(req.params.id + "deleted");
+    db.Places.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(dbplace){
+        res.json(dbplace);
+      });
+  });
+  
 };
