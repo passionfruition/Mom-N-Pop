@@ -11,6 +11,10 @@ font-family: 'Inconsolata', monospace; */
 
 }
 
+.toastStyle {
+  color: black;
+}
+
 #headertext {
   width: 20vw;
 }
