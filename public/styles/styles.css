@@ -11,6 +11,11 @@ font-family: 'Inconsolata', monospace; */
 
 
 }
+
+#headertext {
+  width: 20vw;
+}
+
 #addbtn {
   z-index: 1;
   text-align: center;
@@ -18,19 +23,11 @@ font-family: 'Inconsolata', monospace; */
   /* position: absolute; */
   /* position: -webkit-sticky; Safari */
   position: fixed;
-  bottom: 0;
+  bottom: 3vh;
   right: 25%;
   background-image: url(../img/add_icon.png);
   background-size: 100%;
-  /* size: 250px 250px; */
-  
-  /* padding-left: 50%; */
-  
 
-
-  /* width: 50vw; */
-  /* margin-top: 8rem; */
-  
 }
 
 #addimage {
@@ -44,14 +41,19 @@ font-family: 'Inconsolata', monospace; */
 #allbtn {
   background-image: url(../img/all_icon.png);
   background-size: 100%;
+  position: fixed;
+  right: 10vw;
+  top: 25vh;
 
 }
 
 #helpbtn {
-  display: none;
+  /* display: none; */
   z-index: 1;
-  position: absolute;
-  width: 25vw;
+  position: fixed;
+  bottom: 0%;
+  right: 0;
+  /* width: 25vw; */
   /* margin-left: 90%; */
   background-color: #00000000;
   
@@ -64,6 +66,10 @@ font-family: 'Inconsolata', monospace; */
   /* width: 25vw; */
   background-image: url(../img/burger_icon.png);
   background-size: 100%;
+  position: fixed;
+  right: 25vw;
+  top: 25vh;
+
 }
 
 #drinksbtn {
@@ -74,6 +80,9 @@ font-family: 'Inconsolata', monospace; */
   /* width: 25vw; */
   background-image: url(../img/drink_icon.png);
   background-size: 100%;
+  position: fixed;
+  right: 40vw;
+  top: 25vh;
 }
 
 @media only screen and (min-width: 601px) {
@@ -91,12 +100,12 @@ body {
 h1 {
   font-family: 'Just Another Hand', cursive;
   font-size: 5rem;
-  text-shadow: 2px 2px #00cccc;
+  text-shadow: 2px 2px #4ae8b4;
 }
 h3{
   font-family: 'Just Another Hand', cursive;
   font-size: 3rem;
-  color: #00cccc;
+  color: #4ae8b4;
   text-shadow: 1px 1px black;
 
 }
@@ -105,10 +114,7 @@ h4{
   font-size: 2rem;
 }
 
-#helpicon {
-  /* font-size: 3rem; */
-  color: cyan;
-}
+
 
 #formblock {
   position: absolute;
@@ -145,10 +151,10 @@ h4{
 
 #titleblock {
   color: cyan;
-  background-color: black;
+  /* background-color: black; */
   z-index: 1;
   text-align: center;
-  width: 50vw;
+  /* width: 50vw; */
   margin-top: 3rem;
  
 }
@@ -158,7 +164,9 @@ h4{
   /* width: 50; */
   color: white;
   /* float: right; */
-  margin: 1rem 10rem 1rem 12rem
+  margin: 1rem 10rem 1rem 12rem;
+  position: fixed;
+  top: 40vh;
   
 }
 
@@ -193,6 +201,9 @@ h4{
 @media only screen and (max-width: 600px) {
   #formblock {
     display: none;
+  }
+  #headertext {
+    width: 80vw;
   }
 
   
@@ -235,7 +246,7 @@ h4{
   /* background-color: #00000000; */
   /* align-content: center; */
   position: fixed;
-  bottom: 0;
+  bottom: 2vh;
   right: 50%;
   text-anchor: middle;
  
@@ -246,33 +257,51 @@ h4{
 }
 
 #drinksbtn {
-  background-color: rgb(0, 185, 185);
+  /* background-color: rgb(0, 185, 185); */
+  position: fixed;
+  left: 1rem;
+  top: 15vh;
+}
+
+#allbtn {
+  position: fixed;
+  right: 1rem;
+  top: 15vh;
 }
 
 #foodbtn {
-  background-color:rgb(0, 185, 185);
+  /* background-color:rgb(0, 185, 185); */
+  position: fixed;
+  left: 42vw;
+  top: 15vh;
 }
 
   #helpbtn {
-    /* position: absolute; */
-    left: 0;
     bottom: 0;
+    right: 5vw;
     display: block;
-    background-color: rgb(0, 185, 185);
+    /* background-color: rgb(0, 185, 185); */
+    background-image: url(../img/help_btn.png);
+  background-size: 70%;
+  background-repeat: no-repeat;
     
     /* color: cyan; */
     /* font-size: 6rem; */
   }
 
   #titleblock {
-    display: inline-block;
+    /* display: inline-block; */
     color: cyan;
-    background-color: black;
-    height: 18vh;
-    width: 100vw;
-    /* margin-top: 0%; */
+    /* background-color: black; */
+    background-image: url(../img/chalkboard-blackboard-texture_28629-1098.jpg);
+    background-size: 100%;
+    /* height: 18vh; */
+    width: 105vw;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 0%;
     /* margin-left: 0vw; */
-    padding-left: auto;
+    /* padding-left: auto; */
     text-align: center;
     z-index: 1;
 
