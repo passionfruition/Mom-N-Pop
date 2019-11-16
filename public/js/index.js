@@ -15,7 +15,10 @@ $(document).ready(function () {
   var lat = 0;
   var long = 0;
   var placeName = "";
-  var currentMarkers = [];
+  var markerArray = [];
+  var initialDisplay = true;
+  var formisValid = false;
+
   var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v11', 
@@ -26,12 +29,13 @@ $(document).ready(function () {
   // Initialize geocoder
   var geocoder = new MapboxGeocoder({ 
     accessToken: mapboxgl.accessToken, 
-    placeholder: '',
+    placeholder: " ",
     // limit results to Seattle area
     countries: 'us',
     place: "Seattle",
     bbox: [-122.50250090764501, 47.5305447461121, -122.10674987605402, 47.73564476982446],
     proximity: [-122.335167, 47.608013],
+    types: "poi",
     mapboxgl: mapboxgl,
     marker: false
   });
@@ -47,12 +51,36 @@ $(document).ready(function () {
 
   document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
-  // When user submits new place
-  $("#add-place").on("click", function () {
+  // Check form validity
+  function checkFormValidity() {
+    var recommendationInput = $("#recommendation-input").val().trim();
+    var categoryInput = $("#category-input").children("option:selected").val();
+    var locationInput = $(".mapboxgl-ctrl-geocoder--input").val();
+    if (recommendationInput == "") {
+      $("#recommendation-input").addClass("is-invalid");
+    } else {
+      $("#recommendation-input").addClass("is-valid");
+    }
+    if (categoryInput == "") {
+      $("#category-input").addClass("is-invalid");
+    } else {
+      $("#category-input").addClass("is-valid");
+    }
+    // if(locationInput == "") {
+    //   $(".mapboxgl-ctrl-geocoder--input").addClass("is-invalid");
+    // } else {
+    //   $(".mapboxgl-ctrl-geocoder--input").addClass("is-valid");
+    // }
+    if (recommendationInput == "" || categoryInput == "" || locationInput == "") {
+      formisValid = false;
+    } else {
+      formisValid = true;
+    }
+  }
+
+  function submitValidForm() {
     var recommendation = $("#recommendation-input").val().trim();
     var category = $("#category-input").children("option:selected").val();
-    console.log(recommendation);
-    console.log(category);
 
     // Clear form after user submits
     $(".mapboxgl-ctrl-geocoder--input").val("");
@@ -67,49 +95,61 @@ $(document).ready(function () {
       photo: "",
       category: category
     }
+    console.log(newPlace);
 
+    // Displays new marker
     $.post("/api/new", newPlace)
       .then(function () {
         var popup = new mapboxgl.Popup({ className: 'popup' })
           .setLngLat([newPlace.lng, newPlace.lat])
-          .setHTML("<h5>" + newPlace.name + "</h5><h6>" + newPlace.category + "</h6><p>" + newPlace.recommendation + "</p>")
+          .setHTML("<h5><strong>" + newPlace.name + "</strong></h5><h6>" + newPlace.category + "</h6><p>" + "<img style='object-fit: cover;' src='" + newPlace.photo + "' height='200' width='200'<br>" + "<b>Recommendation: </b>" + newPlace.recommendation + "</p>")
           .setMaxWidth("300px")
           .addTo(map);
 
-        var marker = new mapboxgl.Marker({ color: 'rgb(0,0,0)' })
+        var newMarker = new mapboxgl.Marker({ color: 'rgb(0,0,0)' })
           .setLngLat([newPlace.lng, newPlace.lat]).setPopup(popup)
           .addTo(map);
-        currentMarkers.push(marker);
+        markerArray.push(newMarker);
+        // console.log(markerArray);
       })
+  }
+  // When user submits new place
+  $("#add-place").on("click", function (event) {
+    event.preventDefault();
+    checkChains(placeName);
+    checkFormValidity();
+    if(formisValid) {
+      submitValidForm();
+      // Remove form validation classes
+      $("#recommendation-input").removeClass("is-invalid");
+      $("#category-input").removeClass("is-invalid");
+      $(".mapboxgl-ctrl-geocoder--input").removeClass("is-invalid");
+      $("#recommendation-input").removeClass("is-valid");
+      $("#category-input").removeClass("is-valid");
+      $(".mapboxgl-ctrl-geocoder--input").removeClass("is-valid");
+      $("#display-form").modal("hide");
+    } 
   })
-
-  var initialDisplay = true;
 
   // Displays markers
   function displayPoints(type) {
     $.get("/api/" + type, function (data) {
-      if (currentMarkers !== null) {
-        for (var i = currentMarkers.length - 1; i >= 0; i--) {
-          currentMarkers[i].remove();
-        }
-      }
+      // First remove markers
+      markerArray.forEach((marker) => marker.remove());
+      markerArray = [];
+
       if (data.length !== 0) {
         for (var i = 0; i < data.length; i++) {
           var popup = new mapboxgl.Popup({ className: 'popup' })
             .setLngLat([data[i].lng, data[i].lat])
-            .setHTML("<h5>" + data[i].name + "</h5><h6>" + data[i].category + "</h6><p>" + data[i].recommendation + "</p>")
+            .setHTML("<h5><strong>" + data[i].name + "</strong></h5><h6>" + data[i].category + "</h6><p>" + "<img style='object-fit: cover;' src='" + data[i].photo + "' alt='place image' height='200' width='200'><br>" + "<b>Recommendation: </b>" + data[i].recommendation + "</p>")
             .setMaxWidth("300px")
             .addTo(map);
-
+          
           var marker = new mapboxgl.Marker({ color: 'rgb(0,0,0)' })
             .setLngLat([data[i].lng, data[i].lat]).setPopup(popup)
             .addTo(map);
-          // Only run on first render
-          if (initialDisplay) {
-            currentMarkers.push(marker);
-            console.log(currentMarkers);
-            initialDisplay = false;
-          }
+              markerArray.push(marker);     
         }
       }
     })
@@ -134,4 +174,15 @@ $(document).ready(function () {
   })
 
 })
+      // checks for chain restaurants and alerts the user while clearing out first form
+var chainsArr = ["Burger King", "McDonald's", "Pizza Hut", "Pizza Hut Express", "Wendy's", "Subway", "Papa John's Pizza", "Domino's Pizza", "Jimmy John's", "Quiznos", "Jack in the Box", "Starbucks", "Taco Bell", "Taco Del Mar", "Arbys", "Arby's", "Chick-fil-A", "KFC", "KFC/Taco Bell", "Woods Coffee", "Krispy Kreme", "Krispy Kreme Doughnuts"]; 
 
+function checkChains(name) {
+  for (var i = 0; i < chainsArr.length; i++) {
+    if(name === chainsArr[i]) {
+      $(".mapboxgl-ctrl-geocoder--input").val("");
+      $(".mapboxgl-ctrl-geocoder--input").attr("placeholder", "Mom n' Pop name here");
+      alert("Hey, Mom n' Pop restaurants only! No chains!");
+    }
+  }
+}
