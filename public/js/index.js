@@ -24,7 +24,7 @@ $(document).ready(function () {
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v11', 
     center: [-122.335167, 47.608013], 
-    zoom: 15
+    zoom: 10
   });
 
   // Initialize geocoder
@@ -49,6 +49,13 @@ $(document).ready(function () {
       placeName = place.text;
     })
   });
+
+  map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+    enableHighAccuracy: true
+    },
+    trackUserLocation: true
+    }));
 
   document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 

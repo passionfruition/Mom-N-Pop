@@ -185,6 +185,7 @@ h4{
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Inconsolata', monospace;
+  background-image: url(../img/salad-2068220_960_720.webp);
 }
 
 #display-form {
