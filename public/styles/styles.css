@@ -30,16 +30,12 @@ font-family: 'Inconsolata', monospace; */
 
 }
 
-#addimage {
-  
-}
-
-#stickyy {
-
-}
-
 #allbtn {
   background-image: url(../img/all_icon.png);
+  z-index: 1;
+  background-color: #00000000;
+  text-align: center;
+  /* width: 25vw; */
   background-size: 100%;
   position: fixed;
   right: 10vw;
@@ -59,7 +55,7 @@ font-family: 'Inconsolata', monospace; */
   
 } 
 
-#foodbtn, #allbtn {
+#foodbtn {
   z-index: 1;
   background-color: #00000000;
   text-align: center;
