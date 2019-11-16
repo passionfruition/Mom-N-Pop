@@ -210,7 +210,7 @@ function checkChains(name) {
     if(name === chainsArr[i]) {
       $(".mapboxgl-ctrl-geocoder--input").val("");
       $(".mapboxgl-ctrl-geocoder--input").attr("placeholder", "Mom n' Pop name here");
-      alert("Hey, Mom n' Pop restaurants only! No chains!");
+      M.toast({html:"Hey, Mom n' Pop restaurants only! No chains!"});
     }
   }
 }
