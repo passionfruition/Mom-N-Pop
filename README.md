@@ -18,18 +18,18 @@ Go to the app's [website](https://momnpop.herokuapp.com/). If you are on the mob
 ## How It Works
 Sequelize is used to store the data and return it to the page through GET and POST requests. In the form the location input comes from the Geocoder API from MapBox which saves the longitude and latitude of the place to be displayed on the map with Map Box markers. The popup pulls information from the user input and also a photo from the Yelp API on the backend. The user can further filter between the categories of places (drinks, food, all) which is handled through front end JavaScript that displays the relevent markers. Our app is hosted by Heroku.
 
-### App View
+## App View
 
-## Web Version
+### Web Version
 ![map project](https://user-images.githubusercontent.com/26778117/69013713-17c7a580-0938-11ea-870d-31d4a5b59b87.PNG)
 
-## Mobile Version
+### Mobile Version
 ![phone](https://user-images.githubusercontent.com/26778117/69013728-404f9f80-0938-11ea-96bf-9d6aea0e81e9.PNG)
 
-## Browse the Map
+### Browse the Map
 ![browsing](https://user-images.githubusercontent.com/26778117/69013747-7725b580-0938-11ea-89c2-5e1612a9933c.gif)
 
-## Add a New Mom-and-Pop Location
+### Add a New Mom-and-Pop Location
 ![adding](https://user-images.githubusercontent.com/26778117/69013740-607f5e80-0938-11ea-9b8d-42b509a911d5.gif)
 
 ## Author(s)
