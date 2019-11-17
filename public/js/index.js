@@ -23,7 +23,7 @@ $(document).ready(function () {
   var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v11', 
-    center: [-122.335167, 47.608013], 
+    center: [-122.335167, 47.608013],
     zoom: 10
   });
 
@@ -33,9 +33,10 @@ $(document).ready(function () {
     placeholder: " ",
     // limit results to Seattle area
     countries: 'us',
-    place: "Seattle",
-    bbox: [-122.50250090764501, 47.5305447461121, -122.10674987605402, 47.73564476982446],
-    proximity: [-122.335167, 47.608013],
+    // place: "Seattle",
+    // bbox: [-122.50250090764501, 47.5305447461121, -122.10674987605402, 47.73564476982446],
+    // proximity: [-122.335167, 47.608013],
+    trackProximity: true,
     types: "poi",
     mapboxgl: mapboxgl,
     marker: false
