@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin</title>
+</head>
+<body>
+    <h1>Admin Page</h1>
+    
+<form id="deleteform">
+    <input type="text" id="deleteid">
+    <button type="submit" id="deletebtn">Delete</button>    
+</form>
+<div id="after"></div>
+<h3>Refresh after you submit to see changes</h3>
+
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<script>
+
+showData();
+
+$("#deletebtn").on("click", function() {
+    var custId = $("#deleteid").val();
+    // console.log(custId  + "type of " + typeof(custId));
+    custId = parseInt(custId);
+    // console.log(custId + "type of " + typeof(custId));
+    $.ajax({
+        method: "DELETE",
+        url: "/api/delete/" + custId,
+    })
+    .then(function() {
+    console.log("ID " + custId + " deleted");
+    
+    });
+})
+
+
+function showData() {
+    $.getJSON("/api/places", function(data) {
+        for (var i = 0; i < data.length; i++) {
+      $("#after").prepend("<tr><td> Name: " + data[i].name + "</td><td><p>ID: " + data[i].id + "</p></td></tr>")};
+        
+    })
+}
+
+</script>
+</body>
+</html>
